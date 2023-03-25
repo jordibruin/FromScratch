@@ -1,7 +1,7 @@
-<img width="634" alt="image" src="https://user-images.githubusercontent.com/170948/227709287-3352813e-7089-48a4-b378-342ebc0874b6.png">
-
 # FromScratch
 Easily reset permissions for your macOS apps through a GUI that calls the tccutil framework( is it a framework? I don't know what else to call it).
+
+<img width="634" alt="image" src="https://user-images.githubusercontent.com/170948/227709287-3352813e-7089-48a4-b378-342ebc0874b6.png">
 
 ## FAQ
 ### How come I can't reset all permissions yet? Only Microphone and Screen Capture?
