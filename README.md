@@ -11,7 +11,7 @@ When I was building the app I only needed those. It's trivial to add the rest so
 Yes, please! If you have any features you want to add, please create an issue or PR.
 
 ## Authors
-This library is created in collaboration between [Jordi Bruin](https://twitter.com/jordibruin), [Hidde van der Ploeg](https://twitter.com/hiddevdploeg), and [Antoine van der Lee](https://www.twitter.com/twannl)
+This library is created by [Jordi Bruin](https://twitter.com/jordibruin).
 
 ## License
 Roadmap is available under the MIT license. See the LICENSE file for more info.
