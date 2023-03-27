@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1D383D29D201440037DB3F /* RunningAppRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D383C29D201440037DB3F /* RunningAppRow.swift */; };
+		3F1D384129D233B50037DB3F /* ActionResultOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D384029D233B50037DB3F /* ActionResultOverlay.swift */; };
+		3FEEE3C729D1938A007277AC /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3C629D1938A007277AC /* ViewExtension.swift */; };
+		3FEEE3C929D193CC007277AC /* AlignmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3C829D193CC007277AC /* AlignmentExtension.swift */; };
+		3FEEE3CB29D19430007277AC /* RunningAppsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3CA29D19430007277AC /* RunningAppsProvider.swift */; };
+		3FEEE3CE29D1971E007277AC /* Consequences in Frameworks */ = {isa = PBXBuildFile; productRef = 3FEEE3CD29D1971E007277AC /* Consequences */; };
+		3FEEE3D029D19975007277AC /* AnimatablePublisherValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3CF29D19975007277AC /* AnimatablePublisherValue.swift */; };
+		3FEEE3D229D19DB3007277AC /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3D129D19DB3007277AC /* Permission.swift */; };
+		3FEEE3D529D1F9D0007277AC /* DefaultsWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 3FEEE3D429D1F9D0007277AC /* DefaultsWrapper */; };
 		C2A9A71B29C8600C00C16500 /* FromScratchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A71A29C8600C00C16500 /* FromScratchApp.swift */; };
 		C2A9A71D29C8600C00C16500 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A71C29C8600C00C16500 /* ContentView.swift */; };
 		C2A9A71F29C8600D00C16500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A9A71E29C8600D00C16500 /* Assets.xcassets */; };
@@ -14,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1D383C29D201440037DB3F /* RunningAppRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningAppRow.swift; sourceTree = "<group>"; };
+		3F1D384029D233B50037DB3F /* ActionResultOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionResultOverlay.swift; sourceTree = "<group>"; };
+		3FEEE3C629D1938A007277AC /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		3FEEE3C829D193CC007277AC /* AlignmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignmentExtension.swift; sourceTree = "<group>"; };
+		3FEEE3CA29D19430007277AC /* RunningAppsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningAppsProvider.swift; sourceTree = "<group>"; };
+		3FEEE3CF29D19975007277AC /* AnimatablePublisherValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatablePublisherValue.swift; sourceTree = "<group>"; };
+		3FEEE3D129D19DB3007277AC /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		C2A9A71729C8600C00C16500 /* FromScratch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FromScratch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A9A71A29C8600C00C16500 /* FromScratchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromScratchApp.swift; sourceTree = "<group>"; };
 		C2A9A71C29C8600C00C16500 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEEE3D529D1F9D0007277AC /* DefaultsWrapper in Frameworks */,
+				3FEEE3CE29D1971E007277AC /* Consequences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +72,13 @@
 			children = (
 				C2A9A71A29C8600C00C16500 /* FromScratchApp.swift */,
 				C2A9A71C29C8600C00C16500 /* ContentView.swift */,
+				3F1D384029D233B50037DB3F /* ActionResultOverlay.swift */,
+				3F1D383C29D201440037DB3F /* RunningAppRow.swift */,
+				3FEEE3D129D19DB3007277AC /* Permission.swift */,
+				3FEEE3CA29D19430007277AC /* RunningAppsProvider.swift */,
+				3FEEE3C629D1938A007277AC /* ViewExtension.swift */,
+				3FEEE3C829D193CC007277AC /* AlignmentExtension.swift */,
+				3FEEE3CF29D19975007277AC /* AnimatablePublisherValue.swift */,
 				C2A9A71E29C8600D00C16500 /* Assets.xcassets */,
 				C2A9A72329C8600D00C16500 /* FromScratch.entitlements */,
 				C2A9A72029C8600D00C16500 /* Preview Content */,
@@ -85,6 +110,10 @@
 			dependencies = (
 			);
 			name = FromScratch;
+			packageProductDependencies = (
+				3FEEE3CD29D1971E007277AC /* Consequences */,
+				3FEEE3D429D1F9D0007277AC /* DefaultsWrapper */,
+			);
 			productName = FromScratch;
 			productReference = C2A9A71729C8600C00C16500 /* FromScratch.app */;
 			productType = "com.apple.product-type.application";
@@ -97,7 +126,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					C2A9A71629C8600C00C16500 = {
 						CreatedOnToolsVersion = 14.1;
@@ -113,6 +142,10 @@
 				Base,
 			);
 			mainGroup = C2A9A70E29C8600C00C16500;
+			packageReferences = (
+				3FEEE3CC29D1971E007277AC /* XCRemoteSwiftPackageReference "Consequences" */,
+				3FEEE3D329D1F9D0007277AC /* XCRemoteSwiftPackageReference "DefaultsWrapper" */,
+			);
 			productRefGroup = C2A9A71829C8600C00C16500 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +172,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1D383D29D201440037DB3F /* RunningAppRow.swift in Sources */,
+				3FEEE3D029D19975007277AC /* AnimatablePublisherValue.swift in Sources */,
+				3FEEE3D229D19DB3007277AC /* Permission.swift in Sources */,
+				3FEEE3C729D1938A007277AC /* ViewExtension.swift in Sources */,
 				C2A9A71D29C8600C00C16500 /* ContentView.swift in Sources */,
 				C2A9A71B29C8600C00C16500 /* FromScratchApp.swift in Sources */,
+				3FEEE3CB29D19430007277AC /* RunningAppsProvider.swift in Sources */,
+				3FEEE3C929D193CC007277AC /* AlignmentExtension.swift in Sources */,
+				3F1D384129D233B50037DB3F /* ActionResultOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +220,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -240,6 +281,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -266,11 +308,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FromScratch/FromScratch.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"FromScratch/Preview Content\"";
-				DEVELOPMENT_TEAM = 8Q7TMPA46J;
+				DEVELOPMENT_TEAM = Q2E884V952;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -293,11 +338,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FromScratch/FromScratch.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"FromScratch/Preview Content\"";
-				DEVELOPMENT_TEAM = 8Q7TMPA46J;
+				DEVELOPMENT_TEAM = Q2E884V952;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -336,6 +384,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3FEEE3CC29D1971E007277AC /* XCRemoteSwiftPackageReference "Consequences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Pyroh/Consequences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		3FEEE3D329D1F9D0007277AC /* XCRemoteSwiftPackageReference "DefaultsWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Pyroh/DefaultsWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FEEE3CD29D1971E007277AC /* Consequences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FEEE3CC29D1971E007277AC /* XCRemoteSwiftPackageReference "Consequences" */;
+			productName = Consequences;
+		};
+		3FEEE3D429D1F9D0007277AC /* DefaultsWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FEEE3D329D1F9D0007277AC /* XCRemoteSwiftPackageReference "DefaultsWrapper" */;
+			productName = DefaultsWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2A9A70F29C8600C00C16500 /* Project object */;
 }
