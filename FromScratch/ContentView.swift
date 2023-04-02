@@ -9,11 +9,22 @@ import SwiftUI
 import Consequences
 
 struct ContentView: View {
-    @StateObject private var provider = RunningAppsProvider.shared
+    @State var allApps: [NSRunningApplication] = []
+    
+    @AppStorage("showAll") private var showAll = false
     @State private var searchText = ""
     
     private var runningApps: [NSRunningApplication] {
-        provider.runningApps.filter(on: \.localizedName, localizedCaseInsensitiveContains: searchText)
+        var apps = allApps
+            .filter { $0.localizedName != nil }
+            .sorted(localizedCaseInsensitiveBy: \.localizedName)
+        if !showAll {
+            apps = apps.filter { $0.activationPolicy == .regular }
+        }
+        if !searchText.isEmpty {
+            apps = apps.filter(on: \.localizedName, localizedCaseInsensitiveContains: searchText)
+        }
+        return apps
     }
     
     var body: some View {
@@ -23,16 +34,20 @@ struct ContentView: View {
         .searchable(text: $searchText)
         .overlay { ActionResultOverlay() }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            Toggle("Show all processes", isOn: $provider.showAll)
+            Toggle("Show all processes", isOn: $showAll)
                 .expandWidth(alignment: .leading)
                 .padding(horizontal: 20, vertical: 10)
                 .background(in: Rectangle())
                 .overlay(alignment: .top) { Divider() }
                 .backgroundStyle(.bar)
         }
+        .onReceive(NSWorkspace.shared.publisher(for: \.runningApplications)) {
+            self.allApps = $0
+        }
         .listStyle(.inset(alternatesRowBackgrounds: true))
-        .animation(.default, observed: provider)
+        .animation(.default, value: allApps)
         .animation(.default, value: searchText)
+        .animation(.default, value: showAll)
     }
 }
 
