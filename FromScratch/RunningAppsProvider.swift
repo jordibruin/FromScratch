@@ -8,17 +8,18 @@
 import SwiftUI
 import Combine
 import Consequences
-import DefaultsWrapper
+import Defaults
 
 final class RunningAppsProvider: ObservableObject {
     static let shared: RunningAppsProvider = .init()
     
     private var cancellables: Set<AnyCancellable>
     
-    @Published var runningApps: [NSRunningApplication]
-    @PublishedPreference("Show all processes") var showAll: Bool = false {
+    @Default(.showAll) var showAll {
         didSet { updateRunningApps() }
     }
+        
+    @Published var runningApps: [NSRunningApplication]
     
     private init() {
         self.cancellables = []
