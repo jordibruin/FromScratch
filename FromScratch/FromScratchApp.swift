@@ -10,8 +10,12 @@ import SwiftUI
 @main
 struct FromScratchApp: App {
     var body: some Scene {
-        WindowGroup {
+        Window(Text("FromScratch"), id: "main") {
             ContentView()
+                .width(min: 420, ideal: 512, max: 888)
+                .height(min: 420)
+                .onAppear { NSWindow.allowsAutomaticWindowTabbing = false }
         }
+        .windowResizability(.contentSize)
     }
 }

@@ -6,124 +6,43 @@
 //
 
 import SwiftUI
+import Consequences
 
 struct ContentView: View {
+    @StateObject private var provider = RunningAppsProvider.shared
+    @State private var searchText = ""
     
-    @State var runningApps: [NSRunningApplication] = []
+    private var runningApps: [NSRunningApplication] {
+        provider.runningApps.filter(on: \.localizedName, localizedCaseInsensitiveContains: searchText)
+    }
     
-    @State var searchText = ""
     var body: some View {
         List {
-            ForEach(runningApps.filter { searchText.isEmpty ? true :  $0.localizedName?.lowercased().contains(searchText.lowercased()) ?? false}, id: \.processIdentifier) { app in
-                HStack {
-                    if let img = app.icon {
-                        Image(nsImage: img)
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                    }
-                    
-                    Text(app.localizedName ?? "No name")
-                        .font(.title2)
-                        
-                    Spacer()
-                    Menu {
-                        ForEach(Permission.allCases) { permission in
-                            Button {
-                                if let identifier = app.bundleIdentifier {
-                                    let task = Process()
-                                    task.launchPath = "/bin/zsh"
-                                    task.arguments = ["-c", "tccutil reset \(permission.commandName) \(identifier)"]
-                                    try? task.run()
-                                }
-                            } label: {
-                                Text(permission.name)
-                            }
-
-                        }
-                    } label: {
-                        Text("Reset")
-                    }
-                    .menuStyle(.borderedButton)
-                    .frame(width: 150)
-                }
-            }
+            ForEach(runningApps, id: \.processIdentifier, content: RunningAppRow.init)
         }
         .searchable(text: $searchText)
-        .onAppear {
-            let apps = NSWorkspace.shared.runningApplications.filter{  $0.activationPolicy == .regular }.filter { $0.localizedName != nil }.sorted(by: { $0.localizedName! < $1.localizedName! })
-            self.runningApps = apps
+        .overlay { ActionResultOverlay() }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            Toggle("Show all processes", isOn: $provider.showAll)
+                .expandWidth(alignment: .leading)
+                .padding(horizontal: 20, vertical: 10)
+                .background(in: Rectangle())
+                .overlay(alignment: .top) { Divider() }
+                .backgroundStyle(.bar)
         }
+        .listStyle(.inset(alternatesRowBackgrounds: true))
+        .animation(.default, observed: provider)
+        .animation(.default, value: searchText)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-    }
-}
-
-enum Permission: String, CaseIterable, Identifiable {
-    case microphone
-    case screencapture
-    
-    var id: String { self.rawValue }
-    
-    var name: String {
-        switch self {
-        case .microphone:
-            return "Microphone"
-        case .screencapture:
-            return "Screen Capture"
-        }
-    }
-    
-    var commandName: String {
-        switch self {
-        case .microphone:
-            return "Microphone"
-        case .screencapture:
-            return "ScreenCapture"
+        VStack {
+            ContentView()
         }
     }
 }
 
-//tccplus [add/reset] SERVICE [BUNDLE_ID]
-//Services:
-// - All
-// - Accessibility
-// - AddressBook
-// - AppleEvents
-// - Calendar
-// - Camera
-// - ContactsFull
-// - ContactsLimited
-// - DeveloperTool
-// - Facebook
-// - LinkedIn
-// - ListenEvent
-// - Liverpool
-// - Location
-// - MediaLibrary
-// - Microphone
-// - Motion
-// - Photos
-// - PhotosAdd
-// - PostEvent
-// - Reminders
-// - ScreenCapture
-// - ShareKit
-// - SinaWeibo
-// - Siri
-// - SpeechRecognition
-// - SystemPolicyAllFiles
-// - SystemPolicyDesktopFolder
-// - SystemPolicyDeveloperFiles
-// - SystemPolicyDocumentsFolder
-// - SystemPolicyDownloadsFolder
-// - SystemPolicyNetworkVolumes
-// - SystemPolicyRemovableVolumes
-// - SystemPolicySysAdminFiles
-// - TencentWeibo
-// - Twitter
-// - Ubiquity
-// - Willow
+
+

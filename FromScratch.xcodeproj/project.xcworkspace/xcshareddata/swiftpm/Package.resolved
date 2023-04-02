@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "consequences",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Pyroh/Consequences",
+      "state" : {
+        "revision" : "808997cbebb17fe10e423729e198f985e7e3b2ed",
+        "version" : "1.3.0"
+      }
+    },
+    {
+      "identity" : "defaultswrapper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Pyroh/DefaultsWrapper.git",
+      "state" : {
+        "revision" : "4a7196963e3e7f15e449ac3c80febb1ab86aa83b",
+        "version" : "3.2.4"
+      }
+    },
+    {
+      "identity" : "optionaltype",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Pyroh/OptionalType.git",
+      "state" : {
+        "revision" : "4965b0fbcd7329d77579b1b1c9768cc2a7e04258",
+        "version" : "1.3.0"
+      }
+    }
+  ],
+  "version" : 2
+}
