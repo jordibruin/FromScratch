@@ -7,13 +7,7 @@
 
 import SwiftUI
 
-enum Permission: String, CaseIterable, Identifiable {
-    var id: String { self.rawValue }
-    
-    case all
-    case accessibility, addressbook, calendar, camera, microphone, photos, screencapture
-    case systempolicyallfiles, systempolicydesktopfolder, systempolicydeveloperfiles, systempolicydocumentsfolder, systempolicydownloadsfolder, systempolicynetworkvolumes, systempolicyremovablevolumes, systempolicysysadminfiles
-    case appleevents, contactsfull, contactslimited, developertool, facebook, linkedin, listenevent, liverpool, location, medialibrary, motion, photosadd, postevent, reminders, sharekit, sinaweibo, siri, speechrecognition, tencentweibo, twitter, ubiquity, willow
+struct Permission: Identifiable {
     
     static var common: [Self] {
         [.accessibility, .addressbook, .calendar, .camera, .microphone, .photos, .screencapture]
@@ -31,82 +25,69 @@ enum Permission: String, CaseIterable, Identifiable {
         [.appleevents, .contactsfull, .contactslimited, .developertool, .listenevent, .liverpool, .location, .medialibrary, .motion, .photosadd, .postevent, .reminders, .sharekit, .sinaweibo, .siri, .speechrecognition, .ubiquity, .willow]
     }
     
-    var displayName: String {
-        switch self {
-        case .addressbook: return "Address Book"
-        case .appleevents: return "Apple Events"
-        case .contactsfull: return "Contacts Full"
-        case .contactslimited: return "Contacts Limited"
-        case .developertool: return "Developer Tool"
-        case .linkedin: return "LinkedIn"
-        case .listenevent: return "Listen Event"
-        case .medialibrary: return "Media Library"
-        case .photosadd: return "Photos Add"
-        case .postevent: return "Post Event"
-        case .sharekit: return "Share Kit"
-        case .sinaweibo: return "Sina Weibo"
-        case .speechrecognition: return "Speech Recognition"
-        case .screencapture: return "Screen Capture"
-        case .systempolicyallfiles: return "All Files"
-        case .systempolicydesktopfolder: return "Desktop Folder"
-        case .systempolicydeveloperfiles: return "Developer Files"
-        case .systempolicydocumentsfolder: return "Documents Folder"
-        case .systempolicydownloadsfolder: return "Downloads Folder"
-        case .systempolicynetworkvolumes: return "Network Volumes"
-        case .systempolicyremovablevolumes: return "Removable Volumes"
-        case .systempolicysysadminfiles: return "SysAdmin Files"
-        case .tencentweibo: return "Tencent Weibo"
-        default: return rawValue.capitalized
+    static let all = Permission(id: "all", systemImage: "staroflife.fill")
+    static let accessibility = Permission(id: "accessibility", appImage: "accessibility")
+    static let addressbook = Permission(id: "addressbook", displayName: "Address Book", systemImage: "person.crop.square")
+    static let calendar = Permission(id: "calendar", systemImage: "calendar")
+    static let camera = Permission(id: "camera", systemImage: "camera")
+    static let microphone = Permission(id: "microphone", systemImage: "mic")
+    static let photos = Permission(id: "photos", systemImage: "photo")
+    static let screencapture = Permission(id: "screencapture", displayName: "Screen Capture", systemImage: "rectangle.dashed.badge.record")
+    static let systempolicyallfiles = Permission(id: "systempolicyallfiles", displayName: "All Files", commandName: "SystemPolicyAllFiles", systemImage: "doc.on.doc")
+    static let systempolicydesktopfolder = Permission(id: "systempolicydesktopfolder", displayName: "Desktop Folder", commandName: "SystemPolicyDesktopFolder", systemImage: "menubar.dock.rectangle")
+    static let systempolicydeveloperfiles = Permission(id: "systempolicydeveloperfiles", displayName: "Developer Files", commandName: "SystemPolicyDeveloperFiles", systemImage: "hammer")
+    static let systempolicydocumentsfolder = Permission(id: "systempolicydocumentsfolder", displayName: "Documents Folder", commandName: "SystemPolicyDocumentsFolder", systemImage: "doc")
+    static let systempolicydownloadsfolder = Permission(id: "systempolicydownloadsfolder", displayName: "Downloads Folder", commandName: "SystemPolicyDownloadsFolder", systemImage: "arrow.down.doc")
+    static let systempolicynetworkvolumes = Permission(id: "systempolicynetworkvolumes", displayName: "Network Volumes", commandName: "SystemPolicyNetworkVolumes", systemImage: "externaldrive.connected.to.line.below")
+    static let systempolicyremovablevolumes = Permission(id: "systempolicyremovablevolumes", displayName: "Removable Volumes", commandName: "SystemPolicyRemovableVolumes", systemImage: "sdcard")
+    static let systempolicysysadminfiles = Permission(id: "systempolicysysadminfiles", displayName: "SysAdmin Files", commandName: "SystemPolicySysAdminFiles", systemImage: "rectangle.stack.badge.person.crop")
+    static let appleevents = Permission(id: "appleevents", displayName: "Apple Events", systemImage: "applescript")
+    static let contactsfull = Permission(id: "contactsfull", displayName: "Contacts Full", systemImage: "person.crop.circle.badge.checkmark")
+    static let contactslimited = Permission(id: "contactslimited", displayName: "Contacts Limited", systemImage: "person.crop.circle")
+    static let developertool = Permission(id: "developertool", displayName: "Developer Tool", systemImage: "wrench.and.screwdriver")
+    static let facebook = Permission(id: "facebook", appImage: "facebook")
+    static let linkedin = Permission(id: "linkedin", displayName: "LinkedIn", appImage: "linkedin")
+    static let listenevent = Permission(id: "listenevent", displayName: "Listen Event")
+    static let liverpool = Permission(id: "liverpool")
+    static let location = Permission(id: "location", systemImage: "location")
+    static let medialibrary = Permission(id: "medialibrary", displayName: "Media Library", systemImage: "popcorn")
+    static let motion = Permission(id: "motion", systemImage: "figure.walk.motion")
+    static let photosadd = Permission(id: "photosadd", displayName: "Photos Add", systemImage: "photo.on.rectangle.angled")
+    static let postevent = Permission(id: "postevent", displayName: "Post Event")
+    static let reminders = Permission(id: "reminders", systemImage: "checklist")
+    static let sharekit = Permission(id: "sharekit", displayName: "Share Kit", systemImage: "square.and.arrow.up")
+    static let sinaweibo = Permission(id: "sinaweibo", displayName: "Sina Weibo")
+    static let siri = Permission(id: "siri", systemImage: "waveform")
+    static let speechrecognition = Permission(id: "speechrecognition", displayName: "Speech Recognition", systemImage: "waveform")
+    static let tencentweibo = Permission(id: "tencentweibo", displayName: "Tencent Weibo")
+    static let twitter = Permission(id: "twitter", appImage: "twitter")
+    static let ubiquity = Permission(id: "ubiquity")
+    static let willow = Permission(id: "willow")
+    
+    let id: String
+    let displayName: String
+    let commandName: String
+    let image: () -> Image
+    
+    init(id: String, displayName: String? = nil, commandName: String? = nil, systemImage: String? = nil) {
+        let resolvedDisplayName = displayName ?? id.capitalized
+        
+        self.id = id
+        self.displayName = resolvedDisplayName
+        self.commandName = commandName ?? resolvedDisplayName.replacingOccurrences(of: " ", with: "")
+        self.image = {
+            Image(systemName: systemImage ?? "gearshape")
         }
     }
     
-    var commandName: String {
-        switch self {
-        case .systempolicyallfiles: return "SystemPolicyAllFiles"
-        case .systempolicydesktopfolder: return "SystemPolicyDesktopFolder"
-        case .systempolicydeveloperfiles: return "SystemPolicyDeveloperFiles"
-        case .systempolicydocumentsfolder: return "SystemPolicyDocumentsFolder"
-        case .systempolicydownloadsfolder: return "SystemPolicyDownloadsFolder"
-        case .systempolicynetworkvolumes: return "SystemPolicyNetworkVolumes"
-        case .systempolicyremovablevolumes: return "SystemPolicyRemovableVolumes"
-        case .systempolicysysadminfiles: return "SystemPolicySysAdminFiles"
-        default: return displayName.replacingOccurrences(of: " ", with: "")
-        }
-    }
-    
-    fileprivate var image: Image {
-        switch self {
-        case .all: return Image(systemName: "staroflife.fill")
-        case .accessibility: return Image("accessibility")
-        case .addressbook: return Image(systemName: "person.crop.square")
-        case .calendar: return Image(systemName: "calendar")
-        case .camera: return Image(systemName: "camera")
-        case .microphone: return Image(systemName: "mic")
-        case .photos: return Image(systemName: "photo")
-        case .screencapture: return Image(systemName: "rectangle.dashed.badge.record")
-        case .systempolicyallfiles: return Image(systemName: "doc.on.doc")
-        case .systempolicydesktopfolder: return Image(systemName: "menubar.dock.rectangle")
-        case .systempolicydeveloperfiles: return Image(systemName: "hammer")
-        case .systempolicydocumentsfolder: return Image(systemName: "doc")
-        case .systempolicydownloadsfolder: return Image(systemName: "arrow.down.doc")
-        case .systempolicynetworkvolumes: return Image(systemName: "externaldrive.connected.to.line.below")
-        case .systempolicyremovablevolumes: return Image(systemName: "sdcard")
-        case .systempolicysysadminfiles: return Image(systemName: "rectangle.stack.badge.person.crop")
-        case .appleevents: return Image(systemName: "apple.logo")
-        case .contactsfull: return Image(systemName: "person.crop.circle.badge.checkmark")
-        case .contactslimited: return Image(systemName: "person.crop.circle")
-        case .developertool: return Image(systemName: "wrench.and.screwdriver")
-        case .facebook: return Image("facebook")
-        case .linkedin: return Image("linkedin")
-        case .location: return Image(systemName: "location")
-        case .medialibrary: return Image(systemName: "popcorn")
-        case .motion: return Image(systemName: "figure.walk.motion")
-        case .reminders: return Image(systemName: "checklist")
-        case .sharekit: return Image(systemName: "square.and.arrow.up")
-        case .siri: return Image(systemName: "waveform")
-        case .speechrecognition: return Image(systemName: "waveform")
-        case .twitter: return Image("twitter")
-        default: return Image(systemName: "gearshape")
+    init(id: String, displayName: String? = nil, commandName: String? = nil, appImage: String) {
+        let resolvedDisplayName = displayName ?? id.capitalized
+        
+        self.id = id
+        self.displayName = resolvedDisplayName
+        self.commandName = commandName ?? resolvedDisplayName.replacingOccurrences(of: " ", with: "")
+        self.image = {
+            Image(appImage)
         }
     }
     
@@ -166,7 +147,13 @@ private struct PermissionButton: View {
                     ActionResultOverlay.postFailedResult(id: resultId, message: message, image: icon)
                     self.isResettingPermission = false
                 }
+            } label: {
+                Label { Text(displayName) } icon: { image() }
             }
+        } else {
+            Button { } label: {
+                Label { Text(displayName) } icon: { image() }
+            }.disabled(true)
         }
     }
     
