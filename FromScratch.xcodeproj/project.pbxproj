@@ -11,7 +11,6 @@
 		3F1D384129D233B50037DB3F /* ActionResultOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D384029D233B50037DB3F /* ActionResultOverlay.swift */; };
 		3FEEE3C729D1938A007277AC /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3C629D1938A007277AC /* ViewExtension.swift */; };
 		3FEEE3C929D193CC007277AC /* AlignmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3C829D193CC007277AC /* AlignmentExtension.swift */; };
-		3FEEE3CB29D19430007277AC /* RunningAppsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3CA29D19430007277AC /* RunningAppsProvider.swift */; };
 		3FEEE3CE29D1971E007277AC /* Consequences in Frameworks */ = {isa = PBXBuildFile; productRef = 3FEEE3CD29D1971E007277AC /* Consequences */; };
 		3FEEE3D029D19975007277AC /* AnimatablePublisherValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3CF29D19975007277AC /* AnimatablePublisherValue.swift */; };
 		3FEEE3D229D19DB3007277AC /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEE3D129D19DB3007277AC /* Permission.swift */; };
@@ -19,8 +18,6 @@
 		C2A9A71D29C8600C00C16500 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A71C29C8600C00C16500 /* ContentView.swift */; };
 		C2A9A71F29C8600D00C16500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A9A71E29C8600D00C16500 /* Assets.xcassets */; };
 		C2A9A72229C8600D00C16500 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A9A72129C8600D00C16500 /* Preview Assets.xcassets */; };
-		C2FE73E029D9A467007AEC17 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = C2FE73DF29D9A467007AEC17 /* Defaults */; };
-		C2FE73E229D9A472007AEC17 /* Defaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE73E129D9A472007AEC17 /* Defaults+Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +25,6 @@
 		3F1D384029D233B50037DB3F /* ActionResultOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionResultOverlay.swift; sourceTree = "<group>"; };
 		3FEEE3C629D1938A007277AC /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		3FEEE3C829D193CC007277AC /* AlignmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignmentExtension.swift; sourceTree = "<group>"; };
-		3FEEE3CA29D19430007277AC /* RunningAppsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningAppsProvider.swift; sourceTree = "<group>"; };
 		3FEEE3CF29D19975007277AC /* AnimatablePublisherValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatablePublisherValue.swift; sourceTree = "<group>"; };
 		3FEEE3D129D19DB3007277AC /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		C2A9A71729C8600C00C16500 /* FromScratch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FromScratch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +33,6 @@
 		C2A9A71E29C8600D00C16500 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2A9A72129C8600D00C16500 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C2A9A72329C8600D00C16500 /* FromScratch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FromScratch.entitlements; sourceTree = "<group>"; };
-		C2FE73E129D9A472007AEC17 /* Defaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Keys.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2FE73E029D9A467007AEC17 /* Defaults in Frameworks */,
 				3FEEE3CE29D1971E007277AC /* Consequences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,8 +71,6 @@
 				3F1D384029D233B50037DB3F /* ActionResultOverlay.swift */,
 				3F1D383C29D201440037DB3F /* RunningAppRow.swift */,
 				3FEEE3D129D19DB3007277AC /* Permission.swift */,
-				C2FE73E129D9A472007AEC17 /* Defaults+Keys.swift */,
-				3FEEE3CA29D19430007277AC /* RunningAppsProvider.swift */,
 				3FEEE3C629D1938A007277AC /* ViewExtension.swift */,
 				3FEEE3C829D193CC007277AC /* AlignmentExtension.swift */,
 				3FEEE3CF29D19975007277AC /* AnimatablePublisherValue.swift */,
@@ -115,7 +107,6 @@
 			name = FromScratch;
 			packageProductDependencies = (
 				3FEEE3CD29D1971E007277AC /* Consequences */,
-				C2FE73DF29D9A467007AEC17 /* Defaults */,
 			);
 			productName = FromScratch;
 			productReference = C2A9A71729C8600C00C16500 /* FromScratch.app */;
@@ -147,7 +138,6 @@
 			mainGroup = C2A9A70E29C8600C00C16500;
 			packageReferences = (
 				3FEEE3CC29D1971E007277AC /* XCRemoteSwiftPackageReference "Consequences" */,
-				C2FE73DE29D9A467007AEC17 /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = C2A9A71829C8600C00C16500 /* Products */;
 			projectDirPath = "";
@@ -178,11 +168,9 @@
 				3F1D383D29D201440037DB3F /* RunningAppRow.swift in Sources */,
 				3FEEE3D029D19975007277AC /* AnimatablePublisherValue.swift in Sources */,
 				3FEEE3D229D19DB3007277AC /* Permission.swift in Sources */,
-				C2FE73E229D9A472007AEC17 /* Defaults+Keys.swift in Sources */,
 				3FEEE3C729D1938A007277AC /* ViewExtension.swift in Sources */,
 				C2A9A71D29C8600C00C16500 /* ContentView.swift in Sources */,
 				C2A9A71B29C8600C00C16500 /* FromScratchApp.swift in Sources */,
-				3FEEE3CB29D19430007277AC /* RunningAppsProvider.swift in Sources */,
 				3FEEE3C929D193CC007277AC /* AlignmentExtension.swift in Sources */,
 				3F1D384129D233B50037DB3F /* ActionResultOverlay.swift in Sources */,
 			);
@@ -398,14 +386,6 @@
 				minimumVersion = 1.3.0;
 			};
 		};
-		C2FE73DE29D9A467007AEC17 /* XCRemoteSwiftPackageReference "Defaults" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/Defaults";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -413,11 +393,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3FEEE3CC29D1971E007277AC /* XCRemoteSwiftPackageReference "Consequences" */;
 			productName = Consequences;
-		};
-		C2FE73DF29D9A467007AEC17 /* Defaults */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C2FE73DE29D9A467007AEC17 /* XCRemoteSwiftPackageReference "Defaults" */;
-			productName = Defaults;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
