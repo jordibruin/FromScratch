@@ -91,25 +91,61 @@ struct Permission: Identifiable {
         }
     }
     
-    @ViewBuilder
     func button(for app: NSRunningApplication) -> some View {
-        if let id = app.bundleIdentifier, let name = app.localizedName {
-            Button {
-                let resultId = id + commandName
-                let icon = app.icon.map(Image.init(nsImage: ))
+        PermissionButton(app: app, permission: self)
+    }
+}
+
+private struct PermissionButton: View {
+    
+    let app: NSRunningApplication
+    let permission: Permission
+    
+    @State var isResettingPermission = false
+    
+    var body: some View {
+        Button {
+            resetPermission()
+        } label: {
+            Label { Text(permission.displayName) } icon: { permission.image }
+        }
+        .disabled(app.bundleIdentifier == nil || app.localizedName == nil || isResettingPermission)
+    }
+    
+    private func resetPermission() {
+        guard let id = app.bundleIdentifier, let name = app.localizedName else {
+            return
+        }
+        
+        isResettingPermission = true
+        
+        Task.detached {
+            let resultId = id + permission.commandName
+            let icon = app.icon.map(Image.init(nsImage: ))
+            
+            do {
+                let task = Process()
+                task.launchPath = "/bin/zsh"
+                task.arguments = ["-c", "tccutil reset \(permission.commandName) \(id)"]
+                try task.run()
+                task.waitUntilExit()
                 
-                do {
-                    let task = Process()
-                    task.launchPath = "/bin/zsh"
-                    task.arguments = ["-c", "tccutil reset \(commandName) \(id)"]
-                    try task.run()
-                    task.waitUntilExit()
-                    
-                    let message = Text("Successfully reset \(displayName) approval status for \(name)")
+                // `tccutil` exits with a code of 0 if it succeeded
+                // if anything went wrong, the value is non-zero
+                if task.terminationStatus != 0 {
+                    throw ProcessError.other(task.terminationStatus)
+                }
+                
+                await MainActor.run {
+                    let message = Text("Successfully reset \(permission.displayName) approval status for \(name)")
                     ActionResultOverlay.postSuccessfulResult(id: resultId, message: message, image: icon)
-                } catch {
-                    let message = Text("Failed to reset \(displayName) approval status for \(name)")
+                    self.isResettingPermission = false
+                }
+            } catch {
+                await MainActor.run {
+                    let message = Text("Failed to reset \(permission.displayName) approval status for \(name)")
                     ActionResultOverlay.postFailedResult(id: resultId, message: message, image: icon)
+                    self.isResettingPermission = false
                 }
             } label: {
                 Label { Text(displayName) } icon: { image() }
@@ -120,6 +156,11 @@ struct Permission: Identifiable {
             }.disabled(true)
         }
     }
+    
+}
+
+private enum ProcessError: Error {
+    case other(Int32)
 }
 
 //tccplus [add/reset] SERVICE [BUNDLE_ID]
