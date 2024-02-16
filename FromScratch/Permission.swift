@@ -107,7 +107,7 @@ private struct PermissionButton: View {
         Button {
             resetPermission()
         } label: {
-            Label { Text(permission.displayName) } icon: { permission.image }
+            Label { Text(permission.displayName) } icon: { permission.image() }
         }
         .disabled(app.bundleIdentifier == nil || app.localizedName == nil || isResettingPermission)
     }
@@ -147,13 +147,7 @@ private struct PermissionButton: View {
                     ActionResultOverlay.postFailedResult(id: resultId, message: message, image: icon)
                     self.isResettingPermission = false
                 }
-            } label: {
-                Label { Text(displayName) } icon: { image() }
             }
-        } else {
-            Button { } label: {
-                Label { Text(displayName) } icon: { image() }
-            }.disabled(true)
         }
     }
     
